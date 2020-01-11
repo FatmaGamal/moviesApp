@@ -1,0 +1,11 @@
+{
+  "name": "moviesapp",
+  "version": "1.0.0",
+  "description": "this project shows a list of movies, you can edit, search, filter movies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fatma El-Nagar",
+  "license": "ISC"
+}
