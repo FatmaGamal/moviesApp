@@ -1,0 +1,44 @@
+form {
+  margin: 50px auto;
+}
+.form {
+  &-input {
+    color: $black;
+    border: none;
+    border-bottom: 1px solid $black;
+    border-radius: 0;
+    box-shadow: none;
+    &:invalid {
+      border-color: $red;
+    }
+    &-focus {
+      outline: none;
+    }
+  }
+  &-control-file + label {
+    color: $white;
+    background-color: $red;
+    border-radius: 3px;
+    padding: 7px 15px;
+    margin: 20px auto;
+    &:hover {
+      background-color: darken($red, 10%);
+      cursor: pointer;
+    }
+  }
+}
+
+input {
+  &[type="file" i] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  &[type="checkbox"],
+  & + label {
+    cursor: pointer;
+  }
+}
