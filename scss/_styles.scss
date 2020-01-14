@@ -11,6 +11,10 @@ margin: 30px auto;
   margin: 30px auto;
 }
 
+.active {
+  display: block;
+}
+
 a {
   color: $white;
   &:hover,

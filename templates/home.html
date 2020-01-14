@@ -8,6 +8,25 @@
 
 <body>
     <div class="container">
+        <div class="row actions">
+            <div class="dropdown col-6">
+                <button class="btn btn-prim col" type="button" id="filter-btn" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Year<i class="btn-icon btn-icon-arrow-down align-middle mx-2"></i>
+                </button>
+                <div class="dropdown-menu col" aria-labelledby="year-filter" id="dropdown-container"></div>
+            </div>
+            <div class="input-group col-6 bar">
+                <input class="form-control py-2" type="search" value="" id="title-search" placeholder="search">
+                <span class="input-group-append">
+                    <button class="btn btn-prim" type="button" id="search-btn">
+                        <i class="btn-icon btn-icon-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
         <div id="movies-container" class="row"></div>
         <div class="row actions">
             <div class="col">

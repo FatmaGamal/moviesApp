@@ -162,13 +162,31 @@ function showCategories() {
     );
 }
 
+function getMoviesYears() {
+    getMovies().then(
+        (movies) => {
+            for (let i = 0; i < movies.length; i++) {
+                let dropdownItem = document.createElement('button');
+                dropdownItem.className = 'dropdown-item';
+                dropdownItem.type = 'button';
+                dropdownItem.innerHTML = `${movies[i].year}`;
+                dropdownItem.addEventListener('click', function () {
+                    filterByYear(movies[i].year);
+                }, false);
+
+                document.getElementById('dropdown-container').append(dropdownItem);
+            }
+        }
+    );
+}
+
 function showMovies() {
     // Heroku
     getMovies().then(
         (movies) => {
             for (let i = 0; i < movies.length; i++) {
-                let card = document.createElement('div');
                 let genres = mapCategories(movies[i].category_ids);
+                let card = document.createElement('div');
                 card.className = 'col-sm-6 col-md-4 col-lg-3';
                 card.innerHTML = `<div class='movie-card' id='${movies[i].id}'>
                                     <div class='movie-info'>
@@ -198,11 +216,54 @@ function mapCategories(genres) {
     return genresTitles;
 }
 
+function filterByName() {
+    let searchName = document.getElementById('title-search').value;
+    if (searchName.length > 0) {
+        getMovies().then(
+            (movies) => {
+                for (let i = 0; i < movies.length; i++) {
+                    if (movies[i].title.toLowerCase() != searchName.trim().toLowerCase()) {
+                        document.getElementById(movies[i].id).parentElement.style.display = 'none';
+                    }
+                }
+            }
+        );
+    }
+}
+
+function filterByYear(yearTarget) {
+    getMovies().then(
+        (movies) => {
+            for (let i = 0; i < movies.length; i++) {
+                if (movies[i].year != yearTarget) {
+                    document.getElementById(movies[i].id).parentElement.style.display = 'none';
+                }
+            }
+        }
+    );
+}
+
+function toggleDropdown() {
+    document.getElementById('dropdown-container').classList.toggle('active');
+}
+
 window.onload = function (e) {
     urlParams = new URLSearchParams(location.search);
     getCategories();
     if (document.getElementById('movies-container') !== null) {
         showMovies();
+        getMoviesYears();
+
+        document.getElementById('filter-btn').addEventListener('click', toggleDropdown);
+        document.getElementById('search-btn').addEventListener('click', filterByName);
+        document.getElementById('search-btn').addEventListener('blur', function () {
+            let cards = document.getElementById('movies-container').children;
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].style.display = 'block';
+            }
+            document.getElementById('title-search').value = '';
+        });
+
     } else {
         showCategories();
         document.getElementById('update-btn').addEventListener('click', updateMoviesList);
