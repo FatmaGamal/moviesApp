@@ -71,7 +71,7 @@ function addMovie() {
     item.category_ids = [];
     let genres = document.querySelectorAll('input[name=genre]:checked');
     for (let i = 0; i < genres.length; i++) {
-        item.category_ids.push(Number(genres[i].value));
+        item.category_ids.push(Number(genres[i].id));
     }
 
     getMovies().then(
@@ -98,9 +98,9 @@ function editMovieById(movieId) {
             document.getElementById('title').value = movie.title;
             document.getElementById('budget').value = movie.budget;
             document.getElementById('year').value = movie.year;
-            let genres = movie.categories_id;
-            for (let i = 0; i < genres; i++) {
-                document.getElementById(`input[value = ${genres[i]}]`).checked = true;
+            let genres = movie.category_ids;
+            for (let i = 0; i < genres.length; i++) {
+                document.getElementById(`${genres[i]}`).checked = true;
             }
         }
     };
@@ -114,7 +114,7 @@ function updateMovie(movieId) {
     item.category_ids = [];
     let genres = document.querySelectorAll('input[name=genre]:checked');
     for (let i = 0; i < genres.length; i++) {
-        item.category_ids.push(Number(genres[i].value));
+        item.category_ids.push(Number(genres[i].id));
     }
     putMovie(movieId, item);
 }
@@ -154,8 +154,8 @@ function showCategories() {
             for (let i = 0; i < genres.length; i++) {
                 let genre = document.createElement('div');
                 genre.className = 'form-check form-check-inline';
-                genre.innerHTML = `<input class='form-check-input' type='checkbox' id='genre-${genres[i].title}' value='${genres[i].id}' name='genre'>
-                    <label class='form-check-label' for='genre-${genres[i].title}'>${genres[i].title}</label>`;
+                genre.innerHTML = `<input class='form-check-input' type='checkbox' id='${genres[i].id}' value='genre-${genres[i].title}' name='genre'>
+                    <label class='form-check-label' for='${genres[i].id}'>${genres[i].title}</label>`;
                 document.getElementById('movies-genres').append(genre);
             }
         }
