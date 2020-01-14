@@ -11,6 +11,22 @@
       background-color: darken($red, 10%);
     }
   }
+  &-sec {
+    background-color: $darkgrey;
+    padding: 7px 25px;
+    &:hover {
+      color: $white;
+      background-color: darken($darkgrey, 10%);
+    }
+  }
+  &-hidden {
+    background-color: $lightergrey;
+    padding: 7px 25px;
+    &:hover {
+      color: $white;
+      background-color: darken($lightgrey, 10%);
+    }
+  }
   &-circle {
     width: 40px;
     height: 40px;
@@ -25,12 +41,23 @@
       border-radius: 45px;
     }
   }
+  &-success {
+      background-color: $bootstrap-success;
+      cursor: none;
+      pointer-events: none;
+  }
   &-icon {
     display: inline-block;
     width: 20px;
     height: 20px;
     &-plus {
       background: url("../images/plus.svg");
+    }
+    &-edit {
+      background: url("../images/edit.svg");
+    }
+    &-delete {
+      background: url("../images/bin.svg");
     }
     &-lg {
       width: 35px;
