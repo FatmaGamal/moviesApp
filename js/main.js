@@ -15,11 +15,22 @@ function addMovie() {
         setTimeout(function () {
             document.getElementById('update-btn').classList.remove('btn-success');
         }, 2000);
+    } else {
+        console.log('movie already exists in database');
     }
 }
 
 function updateMoviesList() {
-    addMovie();
+    if (validateForm()) {
+        if (!document.getElementById('error-text').classList.contains('d-none')) {
+            document.getElementById('error-text').classList.add('d-none');
+        }
+        addMovie();
+    } else {
+        if (document.getElementById('error-text').classList.contains('d-none')) {
+            document.getElementById('error-text').classList.remove('d-none');
+        }
+    }
 }
 
 function showMovies() {
@@ -36,6 +47,18 @@ function showMovies() {
                                 </div>`;
         document.getElementById('movies-container').append(card);
     }
+}
+
+function validateForm() {
+    let year = document.getElementById('year').value;
+    let budget = document.getElementById('budget').value;
+
+    let yearRgex = /^\d{4}$/g;
+    let budgetRgex = /(?!^0*$)(?!^0*\.0*$)^\d{1,18}(\.\d{1,5})+$/g;
+
+    let yearResult = yearRgex.test(year);
+    let budgetResult = budgetRgex.test(budget);
+    return yearResult && budgetResult;
 }
 
 window.onload = function (e) {
