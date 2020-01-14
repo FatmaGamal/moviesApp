@@ -2,29 +2,30 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../css/main.css" />
-    <script src="../js/main.js"></script>
+    <link rel='stylesheet' href='../css/main.css' />
+    <script src='../js/main.js'></script>
 </head>
 
 <body>
-    <div class="container">
+    <div class='container'>
         <form>
-            <div class="form-group">
-                <label for="title">Movie Title</label>
-                <input type="text" class="form-control form-input" id="title" placeholder="Joker">
+            <div class='form-group'>
+                <label for='title'>Movie Title</label>
+                <input type='text' class='form-control form-input' id='title' placeholder='Joker' required>
             </div>
-            <div class="form-group">
-                <label for="budget">Budget</label>
-                <input type="text" class="form-control form-input" id="budget" placeholder="12100">
+            <div class='form-group'>
+                <label for='budget'>Budget</label>
+                <input type='text' class='form-control form-input' id='budget' placeholder='xxxxxxxxx.xx'>
             </div>
-            <div class="form-group">
-                <label for="year">Year</label>
-                <input type="text" class="form-control form-input" id="year" placeholder="2016">
+            <div class='form-group'>
+                <label for='year'>Year</label>
+                <input type='text' class='form-control form-input' id='year' placeholder='YYYY'>
             </div>
-            <div class="form-group" id="movies-genres"></div>
+            <div class='form-group' id='movies-genres'></div>
+            <p id='error-text' class='d-none'>PS: Budget: 0.0 & year: YYYY</p>
         </form>
-        <button type="button" id="update-btn" class="col-4 col-lg-3 btn btn-prim" disabled>Update</button>
-        <a class="col-4 col-lg-3 btn btn-sec" href="home.html">Done</a>
+        <button type='button' id='update-btn' class='col-4 col-lg-3 btn btn-prim'>Update</button>
+        <a class='col-4 col-lg-3 btn btn-sec' href='home.html'>Done</a>
     </div>
 </body>
 

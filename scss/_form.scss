@@ -29,7 +29,7 @@ form {
 }
 
 input {
-  &[type="file" i] {
+  &[type='file' i] {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
@@ -37,8 +37,12 @@ input {
     position: absolute;
     z-index: -1;
   }
-  &[type="checkbox"],
+  &[type='checkbox'],
   & + label {
     cursor: pointer;
   }
+}
+
+#error-text {
+  color: red;
 }

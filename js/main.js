@@ -26,7 +26,7 @@ function postMovie(item) {
             document.getElementById('update-btn').classList.add('btn-success');
             setTimeout(function () {
                 document.getElementById('update-btn').classList.remove('btn-success');
-            }, 3000);
+            }, 2000);
             console.log('movie added');
         }
     };
@@ -35,7 +35,7 @@ function postMovie(item) {
 function deleteMovie(movieId) {
     let url = `https://frontend-recruitment-challenge.herokuapp.com/movies/${movieId}`;
     let xhr = new XMLHttpRequest();
-    xhr.open("DELETE", url, true);
+    xhr.open('DELETE', url, true);
     xhr.send();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
@@ -49,7 +49,7 @@ function putMovie(movieId, item) {
     let url = `https://frontend-recruitment-challenge.herokuapp.com/movies/${movieId}`;
     let params = JSON.stringify(item);
     let xhr = new XMLHttpRequest();
-    xhr.open("PUT", url, true);
+    xhr.open('PUT', url, true);
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     xhr.send(params);
     xhr.onreadystatechange = function () {
@@ -57,7 +57,7 @@ function putMovie(movieId, item) {
             document.getElementById('update-btn').classList.add('btn-success');
             setTimeout(function () {
                 document.getElementById('update-btn').classList.remove('btn-success');
-            }, 3000);
+            }, 2000);
             console.log('movie updated');
         }
     };
@@ -72,6 +72,7 @@ function addMovie() {
     let genres = document.querySelectorAll('input[name=genre]:checked');
     for (let i = 0; i < genres.length; i++) {
         item.category_ids.push(Number(genres[i].id));
+
     }
 
     getMovies().then(
@@ -125,7 +126,16 @@ function updateMoviesList() {
         if (type == 'edit') {
             updateMovie(urlParams.get('id'));
         } else if (type == 'add') {
-            addMovie();
+            if (validateForm()) {
+                if (!document.getElementById('error-text').classList.contains('d-none')) {
+                    document.getElementById('error-text').classList.add('d-none');
+                }
+                addMovie();
+            } else {
+                if (document.getElementById('error-text').classList.contains('d-none')) {
+                    document.getElementById('error-text').classList.remove('d-none');
+                }
+            }
         }
     }
 }
@@ -245,6 +255,18 @@ function filterByYear(yearTarget) {
 
 function toggleDropdown() {
     document.getElementById('dropdown-container').classList.toggle('active');
+}
+
+function validateForm() {
+    let year = document.getElementById('year').value;
+    let budget = document.getElementById('budget').value;
+
+    let yearRgex = /^\d{4}$/g;
+    let budgetRgex = /(?!^0*$)(?!^0*\.0*$)^\d{1,18}(\.\d{1,5})+$/g;
+
+    let yearResult = yearRgex.test(year);
+    let budgetResult = budgetRgex.test(budget);
+    return yearResult && budgetResult;
 }
 
 window.onload = function (e) {
