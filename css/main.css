@@ -7148,6 +7148,9 @@ body {
 .container {
   margin: 30px auto; }
 
+.active {
+  display: block; }
+
 a {
   color: #fff; }
   a:hover, a:active, a:visited {
@@ -7166,6 +7169,18 @@ a {
     .btn-prim:hover {
       color: #fff;
       background-color: #921723; }
+  .btn-sec {
+    background-color: #333;
+    padding: 7px 25px; }
+    .btn-sec:hover {
+      color: #fff;
+      background-color: #1a1a1a; }
+  .btn-hidden {
+    background-color: #f4f4f4;
+    padding: 7px 25px; }
+    .btn-hidden:hover {
+      color: #fff;
+      background-color: #b3b3b3; }
   .btn-circle {
     width: 40px;
     height: 40px;
@@ -7178,12 +7193,26 @@ a {
       width: 55px;
       height: 55px;
       border-radius: 45px; }
+  .btn-success {
+    background-color: #28a745;
+    cursor: none;
+    pointer-events: none; }
   .btn-icon {
     display: inline-block;
     width: 20px;
     height: 20px; }
     .btn-icon-plus {
       background: url("../images/plus.svg"); }
+    .btn-icon-edit {
+      background: url("../images/edit.svg"); }
+    .btn-icon-delete {
+      background: url("../images/bin.svg"); }
+    .btn-icon-filter {
+      background: url("../images/filter.svg"); }
+    .btn-icon-search {
+      background: url("../images/search.svg"); }
+    .btn-icon-arrow-down {
+      background: url("../images/arrow-down.svg"); }
     .btn-icon-lg {
       width: 35px;
       height: 35px; }
@@ -7243,3 +7272,11 @@ input + label {
 
 #error-text {
   color: red; }
+
+.bar input {
+  height: 38px;
+  color: #333; }
+
+.bar .btn {
+  height: 38px;
+  line-height: 45px; }
