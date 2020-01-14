@@ -1,0 +1,40 @@
+.btn {
+  color: $white;
+  border-radius: 3px;
+  &-prim {
+    background-color: $red;
+    border: $red;
+    height: 37px;
+    line-height: 26px;
+    &:hover {
+      color: $white;
+      background-color: darken($red, 10%);
+    }
+  }
+  &-circle {
+    width: 40px;
+    height: 40px;
+    padding: 9px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    &-lg {
+      width: 55px;
+      height: 55px;
+      border-radius: 45px;
+    }
+  }
+  &-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    &-plus {
+      background: url("../images/plus.svg");
+    }
+    &-lg {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}

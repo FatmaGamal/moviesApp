@@ -2,10 +2,15 @@
   "name": "moviesapp",
   "version": "1.0.0",
   "description": "this project shows a list of movies, you can edit, search, filter movies",
-  "main": "index.js",
+  "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
   },
   "author": "Fatma El-Nagar",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "4.4.1",
+    "node-sass": "4.13.0"
+  }
 }

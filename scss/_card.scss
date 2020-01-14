@@ -1,0 +1,21 @@
+.movie {
+  &-card {
+    border: 1px solid $lightgrey;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
+  &-info {
+    margin: 10px;
+    > * {
+      margin: 2px auto;
+      font-size: 14px;
+      &:not(.movie-title) {
+        font-size: 12px;
+        color: $grey;
+      }
+    }
+  }
+  &-actions {
+    margin: 10px;
+  }
+}

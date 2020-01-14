@@ -1,0 +1,23 @@
+* {
+  font-family: Palatino;
+  font-size: 14px;
+}
+
+body {
+margin: 30px auto;
+}
+
+.container {
+  margin: 30px auto;
+}
+
+a {
+  color: $white;
+  &:hover,
+  &:active,
+  &:visited {
+    color: $white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
